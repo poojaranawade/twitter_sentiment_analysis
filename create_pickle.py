@@ -1,3 +1,29 @@
+import nltk
+# nltk.download()
+import random
+from nltk.classify.scikitlearn import SklearnClassifier
+import pickle
+from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords
+from sklearn.naive_bayes import MultinomialNB, BernoulliNB
+from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.svm import SVC, LinearSVC, NuSVC
+import json
+from tweepy.streaming import StreamListener   
+from nltk.classify import ClassifierI
+from statistics import mode
+from tweepy import API, TweepError, OAuthHandler, Cursor,Stream
+from nltk.tokenize import word_tokenize
+import csv
+
+save_documents = open("documents.pickle","wb")
+pickle.dump(documents, save_documents)
+save_documents.close()
+
+save_word_features = open("word_features5k.pickle","wb")
+pickle.dump(word_features, save_word_features)
+save_word_features.close()
+
 classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 save_classifier = open("originalnaivebayes5k.pickle","wb")
